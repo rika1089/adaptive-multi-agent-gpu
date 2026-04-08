@@ -1,0 +1,35 @@
+## For each model  ypu need to load them manually like 
+
+🚀 STEP 2: RUN MODELS (CORRECT WAY)
+
+✅ coord (GPU 1)
+docker run -d --gpus '"device=1"' -p 8001:8000 \
+-v /nfsshare/users/sreekar/models:/models \
+--name coord_server \
+vllm/vllm-openai /models/phi3 \
+--max-model-len 4096 \
+--gpu-memory-utilization 0.3
+
+✅ nlp (GPU 5)
+docker run -d --gpus '"device=5"' -p 8002:8000 \
+-v /nfsshare/users/sreekar/models:/models \
+--name nlp_server \
+vllm/vllm-openai /models/qwen \
+--max-model-len 4096 \
+--gpu-memory-utilization 0.3
+
+✅ vision (GPU 6)
+docker run -d --gpus '"device=6"' -p 8003:8000 \
+-v /nfsshare/users/sreekar/models:/models \
+--name vision_server \
+vllm/vllm-openai /models/tinyllama \
+--max-model-len 2048 \
+--gpu-memory-utilization 0.25
+
+✅ reasoning (GPU 7)
+docker run -d --gpus '"device=7"' -p 8004:8000 \
+-v /nfsshare/users/sreekar/models:/models \
+--name reasoning_server \
+vllm/vllm-openai /models/phi3 \
+--max-model-len 4096 \
+--gpu-memory-utilization 0.3
