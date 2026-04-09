@@ -25,7 +25,7 @@ import time
 import requests
 
 from coordinator import route_query
-from config import ports
+from configs.config import ports
 from scheduler import pick_agent
 from metrics import add_query, complete_query
 
