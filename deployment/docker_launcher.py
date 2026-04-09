@@ -1,7 +1,7 @@
 # The fix — switch from os.system() to subprocess.run() which avoids shell quoting entirely:
 
 import subprocess
-from gpu_selector import select_best_gpu
+from deployment.gpu_selector import select_best_gpu
 
 def launch_model(model):
     gpu = select_best_gpu()
