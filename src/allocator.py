@@ -3,7 +3,7 @@
 
 from metrics import queues, arrival_times
 from metrics import compute_avg_latency, compute_queue_length
-from config import agents, min_share
+from configs.config import agents, min_share
 
 import time
 
