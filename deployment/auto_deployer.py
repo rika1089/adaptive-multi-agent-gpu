@@ -1,5 +1,5 @@
-# from model_config import MODELS
-# from docker_launcher import launch_model
+# from configs.model_config import MODELS
+# from deployment.docker_launcher import launch_model
 
 # def deploy_all():
 #     for model in MODELS:
@@ -10,8 +10,8 @@
 
 import requests
 import time
-from model_config import MODELS
-from docker_launcher import launch_model
+from configs.model_config import MODELS
+from deployment.docker_launcher import launch_model
 
 
 def wait_until_ready(port, timeout=120):
