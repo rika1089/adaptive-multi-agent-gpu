@@ -1,5 +1,12 @@
 # adaptive_controller.py
 
+import sys
+from pathlib import Path
+
+# Add src to Python path for sibling imports
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
 import time
 from allocator import compute_allocation
 from scheduler import update_weights
