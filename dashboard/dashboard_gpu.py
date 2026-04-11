@@ -4,7 +4,7 @@ from rich.live import Live
 from rich.table import Table
 import pynvml
 
-from src.metrics import 
+from src.metrics import (
 
     compute_avg_latency,
     compute_queue_length,
