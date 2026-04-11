@@ -365,6 +365,21 @@ Ensure NVIDIA Container Toolkit is installed:
 nvidia-docker run --rm nvidia/cuda:11.0-base nvidia-smi
 ```
 
+
+### vLLM GPU memory insufficient error
+
+If you see: `ValueError: Free memory on device cuda:X (...GiB) on startup is less than desired GPU memory utilization`
+
+**Solution:**
+- Reduce the `--gpu-memory-utilization` parameter (default 0.9):
+  ```bash
+  vllm serve ./model --gpu-memory-utilization 0.25
+  ```
+- For quantized models (AWQ 4-bit), use 0.2-0.3
+- For full precision models, use 0.5-0.7
+- Check GPU memory: `nvidia-smi`
+- Kill other GPU processes if needed
+- On multi-GPU systems, specify GPU: `CUDA_VISIBLE_DEVICES=1 vllm serve ./model`
 ### Import errors
 Run scripts from the project root or use the path setup in `run_scheduler.py`.
 
